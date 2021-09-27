@@ -9,7 +9,8 @@
 
 시나리오 : 프로그램 실행 > 저장 할 폴더 입력 > 메인 페이지, 검색어 입력 > 결과 카테고리 추출 > 카테고리, 검색 할 갯수 입력 > 해당하는 페이지 검색 실행 > 검색 결과 출력 > 저장 여부, 확장자 입력 > 저장 완료 출력 후 메인 페이지 > 검색어 입력 반복
 
-흐름도 : ![move](https://user-images.githubusercontent.com/64139631/134907428-bfb8dbde-998b-4cbd-8ed6-04cae23408b1.PNG)
+흐름도 : ![flowchart](https://user-images.githubusercontent.com/64139631/134908282-2f69f0f2-bb76-49cb-8be4-d3a09f9f6249.PNG)
+
 
 예외처리 : 제작단계
 

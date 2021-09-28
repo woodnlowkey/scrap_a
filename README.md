@@ -28,12 +28,6 @@
 예외처리 : 제작단계 - 사용자 입력에 대한 부분 검토, 각 페이지 콘텐츠의 부재 검토
 
 문제 해결 과정 : 
-문제 발생 - 2021. 09. 27 전체적인 코딩이 끝난 상태 ver1.1
-내용 - 코드에 저장된 데이터가 일정량을 넘으면 먼저 저장된 데이터가 사라져서 뒷 부분만 남음 (큐?) 
-![캡처7](https://user-images.githubusercontent.com/64139631/134908905-619079e7-c447-48c4-8063-8a1403d37d31.PNG)
-![캡처8](https://user-images.githubusercontent.com/64139631/134908989-73d119d9-0413-421b-85ef-e6fd1c10830f.PNG)
-![캡처9](https://user-images.githubusercontent.com/64139631/134909000-fd26d455-b8f7-4e79-bffe-7143209cab0d.PNG)
-![캡처10](https://user-images.githubusercontent.com/64139631/134909018-1fd31cb1-7cb2-4a84-82ab-b877b5665e87.PNG)
 진행중
 
 시연 :

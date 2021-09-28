@@ -120,6 +120,8 @@ def search_output(ctg):
                 browser.get(url)
                 return search_input()
     data_index = 0
+    data = []
+    # 사용자가 입력한 결과 갯수를 넘을 때 까지
     while data_index < num:
         # 끝까지 내리기
         prev_height = browser.execute_script("return document.body.scrollHeight")
@@ -131,10 +133,11 @@ def search_output(ctg):
             if curr_height == prev_height:
                 break
             prev_height = curr_height
-        data = []
+        # html 가져오기
         html = browser.page_source
         soup = BeautifulSoup(html, 'html.parser')
         cards = soup.find_all('div', {'class':'s-result-item'})
+        # 요소 추출, 리스트에 저장
         for card in cards:
             if card.find('img', {'class':'s-image'}):
                 image_url = card.find('img', {'class':'s-image'})['src']
@@ -159,6 +162,7 @@ def search_output(ctg):
             data_index += 1
             print(divison)
             print("번호 :", data_index, "\n이미지 :", image_url, "\n제목 :", title.strip(), "\n가격 :", price, "\n평점 :", grade)
+        # 다음 페이지로 갈 수 없다면 종료
         if browser.find_element_by_class_name('a-last'):
             browser.find_element_by_class_name('a-last').click()
         else:
@@ -166,12 +170,14 @@ def search_output(ctg):
             print(f'더이상 검색 결과가 없습니다. 총 {data_index-1}개가 검색 되었습니다.')
             break
         time.sleep(2)
-    return data
+    # 검색 갯수만큼 반환
+    return data[:num]
 
 def save_data(l):
     "저장된 데이터를 사용자가 원하는 파일 형식으로 저장하는 함수"
-    print('다음 중 저장 할 파일 타입의 번호를 콤마(,)로 구분하여 모두 입력하세요.')
+    print('다음 중 저장 할 파일 타입의 번호를 콤마(,)로 구분하여 모두 입력하세요. (입력 순서대로 실행)')
     saves = list(map(str, input('1 : txt / 2 : csv / 3 : image파일 / 4 : 저장하지 않음 >>> ').split(',')))
+    # 사용자가 입력한 번호의 타입에 맞게 저장
     for i in saves:
         try:
             if int(i) in (1, 2, 3):
@@ -195,16 +201,18 @@ def save_data(l):
                 if int(i) == 3:
                     for j in l:
                         k = j[1]
-                        url = j[2]
-                        if url == 'n/a':
+                        src = j[2]
+                        if src == 'n/a':
                             continue
-                        urllib.request.urlretrieve(url, f"{download_dir}/amazon_{query}{k}.jpg")
+                        urllib.request.urlretrieve(src, f"{download_dir}/amazon_{query}{k}.jpg")
                     continue
             else:
                 break
+        # 숫자가 아닌 경우 예외처리
         except AttributeError or ValueError:
             print('해당하는 번호를 입력하세요.')
             return save_data(l)
+    
     print('작업을 완료했습니다.')
     print(divison)
     browser.get(url)

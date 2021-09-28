@@ -73,7 +73,9 @@ def search_input():
         cnt += 1
     print(divison)
     # 튜플(검색어, 리스트) 형태로 반환
-    return (q, cate_choice)
+    global query
+    query = q
+    return search_output(cate_choice)
 
 def search_output(ctg):
     "사용자에게 검색 할 카테고리와 수량을 입력받아 해당 데이터를 출력하는 함수"
@@ -110,7 +112,7 @@ def search_output(ctg):
     browser.find_element_by_link_text(f'{ctg[ctg_index][1]}').click()
     time.sleep(3)
     results = browser.find_element_by_xpath('//*[@id="search"]/span/div/span/h1/div/div[1]/div/div/span[1]').text
-    result = re.sub(r"[^0-9]", "", results[7:])
+    result = re.sub(r"[^0-9]", "", results)
     while int(result) < num:
         gostop = input(f'검색 결과가 {result}개 입니다. 계속 진행 하시겠습니까? (Y/N) \n>>> ')
         if gostop not in yn:
@@ -118,7 +120,7 @@ def search_output(ctg):
             continue
         else:
             if gostop == 'y' or gostop == 'Y':
-                num = result
+                num = int(result)
                 break
             else:
                 print('검색어 입력으로 돌아갑니다.')
@@ -168,15 +170,15 @@ def search_output(ctg):
             print(divison)
             print("번호 :", data_index, "\n이미지 :", image_url, "\n제목 :", title.strip(), "\n가격 :", price, "\n평점 :", grade)
         # 다음 페이지로 갈 수 없다면 종료
-        if browser.find_element_by_class_name('a-last'):
+        try:
             browser.find_element_by_class_name('a-last').click()
-        else:
+        except:
             print(divison)
             print(f'더이상 검색 결과가 없습니다. 총 {data_index-1}개가 검색 되었습니다.')
             break
         time.sleep(2)
     # 검색 갯수만큼 반환
-    return data[:num]
+    return save_data(data[:num])
 
 def save_data(l):
     "저장된 데이터를 사용자가 원하는 파일 형식으로 저장하는 함수"
@@ -242,12 +244,4 @@ browser.get(url)
 
 download_dir = d_dir()
 if download_dir:
-    query, ctg_list = search_input()
-if query:
-    data_list = search_output(ctg_list)
-if data_list:
-    save_data(data_list)
-else:
-    print('검색 결과가 없습니다. 검색어 입력으로 돌아갑니다.')
-    browser.get(url)
     search_input()

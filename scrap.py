@@ -9,7 +9,7 @@ import csv
 
 '''
 ===== 설명서 링크 =====
-https://github.com/woodnlowkey/scrap_a/blob/1bc7c41c621201ca448c2848bcd2c0946b118db3/README.md
+https://github.com/woodnlowkey/scrap_a/blob/5eee574d4110b5c516ab2acf6fe0c47eba2d5afa/README.md
 '''
 
 def d_dir():

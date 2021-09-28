@@ -7,6 +7,11 @@ import os
 import re
 import csv
 
+'''
+===== 설명서 링크 =====
+https://github.com/woodnlowkey/scrap_a/blob/1bc7c41c621201ca448c2848bcd2c0946b118db3/README.md
+'''
+
 def d_dir():
     "사용자에게 저장 할 경로를 입력받는 함수"
     try:
@@ -177,7 +182,7 @@ def save_data(l):
     "저장된 데이터를 사용자가 원하는 파일 형식으로 저장하는 함수"
     print('다음 중 저장 할 파일 타입의 번호를 콤마(,)로 구분하여 모두 입력하세요. (입력 순서대로 실행)')
     saves = list(map(str, input('1 : txt / 2 : csv / 3 : image파일 / 4 : 저장하지 않음 >>> ').split(',')))
-    # 사용자가 입력한 번호의 타입에 맞게 저장
+    # 사용자가 입력한 번호의 타입에 맞게 레이블링, 저장
     for i in saves:
         try:
             if int(i) in (1, 2, 3):
@@ -203,6 +208,7 @@ def save_data(l):
                         k = j[1]
                         src = j[2]
                         if src == 'n/a':
+                            print(f'{k}번 이미지를 저장할 수 없습니다.')
                             continue
                         urllib.request.urlretrieve(src, f"{download_dir}/amazon_{query}{k}.jpg")
                     continue
@@ -241,3 +247,7 @@ if query:
     data_list = search_output(ctg_list)
 if data_list:
     save_data(data_list)
+else:
+    print('검색 결과가 없습니다. 검색어 입력으로 돌아갑니다.')
+    browser.get(url)
+    search_input()

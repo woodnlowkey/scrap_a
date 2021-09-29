@@ -11,27 +11,10 @@
 
 수행기간 : 2021. 09. 27 ~ 2021. 10. 8 (10일간) 예정
 
-> 시나리오 : 프로그램 실행
-> ![캡처1](https://user-images.githubusercontent.com/64139631/134908439-8c471f42-02bb-4268-93ee-ab1e2eba2aac.PNG)
-> 
-> 저장 할 폴더 입력 > 메인 페이지, 검색어 입력 
-> ![캡처2](https://user-images.githubusercontent.com/64139631/134908601-ed05b383-ae6c-4ae0-8a6f-2188b5646392.PNG)
-> 
-> 결과 카테고리 추출 
-> ![캡처3](https://user-images.githubusercontent.com/64139631/134908678-e11850a8-cbc4-4bd1-89b6-deaf7cff5ab6.PNG)
-> 
-> 카테고리, 검색 할 갯수 입력 
-> ![캡처4](https://user-images.githubusercontent.com/64139631/134908768-f67fcfad-7f49-458d-bf42-be3619c7107a.PNG)
-> 
-> 해당하는 페이지 검색 실행 
-> ![캡처5](https://user-images.githubusercontent.com/64139631/134908812-8b922c78-a15d-451e-aa4b-5ad1b4af42f5.PNG)
-> 
-> 검색 결과 출력 > 저장 여부, 확장자 입력 
-> ![캡처6](https://user-images.githubusercontent.com/64139631/134908859-15883908-7519-4b07-b932-efd160a005e9.PNG)
-> 
-> 저장 완료 출력 후 메인 페이지 > 검색어 입력 반복
+![시나리오1](https://user-images.githubusercontent.com/64139631/135197409-0781959f-31f8-4200-a21b-c78b87ec8537.png)
+![시나리오2](https://user-images.githubusercontent.com/64139631/135197416-64143afe-0e07-4370-96ec-210e2d999a03.png)
 
-흐름도 : ![flowchart](https://user-images.githubusercontent.com/64139631/134908282-2f69f0f2-bb76-49cb-8be4-d3a09f9f6249.PNG)
+![flowchart](https://user-images.githubusercontent.com/64139631/135197507-7c66df4d-38bb-4fcc-8047-3741ead8842d.png)
 
 예외처리 : 제작단계 - 사용자 입력에 대한 부분 검토, 각 페이지 콘텐츠의 부재 검토
 
